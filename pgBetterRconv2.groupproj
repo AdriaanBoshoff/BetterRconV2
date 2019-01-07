@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{46108347-CE36-41C5-BC6A-9436EA3E1791}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BetterRconv2.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BetterRconv2">
+        <MSBuild Projects="BetterRconv2.dproj"/>
+    </Target>
+    <Target Name="BetterRconv2:Clean">
+        <MSBuild Projects="BetterRconv2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BetterRconv2:Make">
+        <MSBuild Projects="BetterRconv2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BetterRconv2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BetterRconv2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BetterRconv2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
